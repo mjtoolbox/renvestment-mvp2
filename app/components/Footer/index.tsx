@@ -12,23 +12,24 @@ const products: ProductType[] = [
     {
         id: 1,
         section: "Menu",
-        link: ['Home', 'Popular', 'About', 'Contact'],
+        link: ['Home', 'Q & A', 'About', 'Contact'],
     },
     {
         id: 2,
         section: "Category",
-        link: ['Design', 'Mockup', 'View all', 'Log In']
-    },
-    {
-        id: 3,
-        section: "Pages",
-        link: ['404', 'Instructions', 'License']
-    },
-    {
-        id: 4,
-        section: "Others",
-        link: ['Styleguide', 'Changelog']
+        // link: ['Design', 'Mockup', 'View all', 'Log In']
+        link: ['Log In']
     }
+    // {
+    //     id: 3,
+    //     section: "Pages",
+    //     link: ['404', 'Instructions', 'License']
+    // },
+    // {
+    //     id: 4,
+    //     section: "Others",
+    //     link: ['Styleguide', 'Changelog']
+    // }
 ]
 
 const footer = () => {
@@ -78,7 +79,7 @@ const footer = () => {
                 <div className="pt-5 pb-5 px-4 sm:px-6 lg:px-4 border-solid border-t border-footer">
                     <div className="mt-4 grid grid-cols-1 gap-y-10 gap-x-16 sm:grid-cols-2 xl:gap-x-8">
                         <div>
-                            <h3 className='text-center md:text-start text-offwhite text-lg'>@2023 - All Rights Reserved by <Link href="https://adminmart.com/" target="_blank"> Adminmart.com</Link></h3>
+                            <h3 className='text-center md:text-start text-offwhite text-lg'>@2025 - All Rights Reserved by Renvestment</h3>
                         </div>
                         <div className="flex justify-center md:justify-end">
                             <Link href="/">
