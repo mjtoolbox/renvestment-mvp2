@@ -23,9 +23,9 @@ const Aboutdata: datatype[] = [
         link: 'Learn more'
     },
     {
-        heading: "Our Works.",
+        heading: "Property Management Benefits",
         imgSrc: "/images/aboutus/imgThree.svg",
-        paragraph: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem',
+        paragraph: 'Property managers can streamline rent collection, reduce late payments, and enhance tenant satisfaction with automated processes and digital records.',
         link: 'Learn more'
     },
 ]
