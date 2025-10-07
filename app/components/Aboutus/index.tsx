@@ -11,9 +11,9 @@ interface datatype {
 
 const Aboutdata: datatype[] = [
     {
-        heading: "About us.",
+        heading: "Tenant Benefit.",
         imgSrc: "/images/aboutus/imgOne.svg",
-        paragraph: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem',
+        paragraph: 'Tenants earn cashback, build savings or investments, and enjoy seamless, automated rent payments with digital records',
         link: 'Learn more'
     },
     {
