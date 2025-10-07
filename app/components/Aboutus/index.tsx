@@ -11,15 +11,15 @@ interface datatype {
 
 const Aboutdata: datatype[] = [
     {
-        heading: "Tenant Benefit.",
+        heading: "Tenant Benefits",
         imgSrc: "/images/aboutus/imgOne.svg",
         paragraph: 'Tenants earn cashback, build savings or investments, and enjoy seamless, automated rent payments with digital records',
         link: 'Learn more'
     },
     {
-        heading: "Services.",
+        heading: "Landlord Benefits",
         imgSrc: "/images/aboutus/imgTwo.svg",
-        paragraph: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem',
+        paragraph: 'Landlords gain automated rent payments, reduced turnover, and a marketing tool to attract reliable, high-quality tenants through Renvestment.',
         link: 'Learn more'
     },
     {
