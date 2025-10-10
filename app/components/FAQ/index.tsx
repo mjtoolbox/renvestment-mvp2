@@ -20,8 +20,7 @@ const FAQ = () => {
                                     />
                                 </Disclosure.Button>
                                 <Disclosure.Panel className="px-4 pt-4 pb-2 text-base text-black font-normal opacity-50">
-                                    Renvestment lets tenants pay rent online while earning cashback. When you pay rent through Renvestment, the money is automatically split <br /> religionis
-                                    sunt diri undead historiarum. Golums, zombies unrelenting <br /> et Raimi fascinati beheading.
+                                    Renvestment lets tenants pay rent online while enabling cashback/investment plan for tenants. When you pay rent through Renvestment, the money is automatically split,  to your landlord, tenants earn % cashback from landlord agreement , and Renvestment takes a small 1% fee to run the platform.
                                 </Disclosure.Panel>
                             </>
                         )}
@@ -33,15 +32,14 @@ const FAQ = () => {
                         {({ open }) => (
                             <>
                                 <Disclosure.Button className="flex w-full justify-between rounded-lg px-4 py-2 text-left text-2xl font-medium">
-                                    <span>Can you code my site?</span>
+                                    <span>What are the fees/cost to use Renvestment?</span>
                                     <ChevronUpIcon
                                         className={`${open ? 'rotate-180 transform' : ''
                                             } h-5 w-5 text-purple-500`}
                                     />
                                 </Disclosure.Button>
                                 <Disclosure.Panel className="px-4 pt-4 pb-2 text-base text-black font-normal opacity-50">
-                                    Craven omni memoria patriae zombieland clairvius narcisse <br /> religionis
-                                    sunt diri undead historiarum. Golums, zombies unrelenting <br /> et Raimi fascinati beheading.
+                                    Renvestment charges a small 1% platform fee on each rent payment to keep the service running smoothly. This fee also covers Stripe’s secure payment processing, so landlords don’t pay anything extra.
                                 </Disclosure.Panel>
                             </>
                         )}
@@ -53,15 +51,14 @@ const FAQ = () => {
                         {({ open }) => (
                             <>
                                 <Disclosure.Button className="flex w-full justify-between rounded-lg px-4 py-2 text-left text-2xl font-medium">
-                                    <span>Where are you located?</span>
+                                    <span>Is Renvestment Payment Secure and Safe?</span>
                                     <ChevronUpIcon
                                         className={`${open ? 'rotate-180 transform' : ''
                                             } h-5 w-5 text-purple-500`}
                                     />
                                 </Disclosure.Button>
                                 <Disclosure.Panel className="px-4 pt-4 pb-2 text-base text-black font-normal opacity-50">
-                                    Craven omni memoria patriae zombieland clairvius narcisse <br /> religionis
-                                    sunt diri undead historiarum. Golums, zombies unrelenting <br /> et Raimi fascinati beheading.
+                                    Yes — your payments and personal information are completely safe with Renvestment. We use Stripe, one of the most trusted payment processors in the world, to handle all transactions.
                                 </Disclosure.Panel>
                             </>
                         )}
