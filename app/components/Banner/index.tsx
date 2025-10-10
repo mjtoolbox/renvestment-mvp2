@@ -13,7 +13,7 @@ const Banner = () => {
                     </div>
                     <div className="py-3 text-center lg:text-start">
                         <h1 className='text-6xl lg:text-80xl font-bold text-darkpurple'>
-                            Dedicated to <br /> bring your <br /> ideas to life.
+                            Pay Rent, <br /> Earn Rewards,  <br /> Build Wealth.
                         </h1>
                     </div>
                     <div className='my-7 text-center lg:text-start'>
