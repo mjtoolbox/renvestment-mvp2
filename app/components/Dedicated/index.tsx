@@ -17,8 +17,8 @@ const Dedicated = () => {
                     {/* COLUMN-2 */}
                     <div className="relative">
                         <Image src="images/dedicated/comma.svg" alt="comma-image" width={200} height={106} className="absolute comma-pos hidden lg:block" />
-                        <h2 className="text-4xl lg:text-65xl pt-4 font-bold sm:leading-tight mt-5 text-center lg:text-start">Driven to Help Canadian Renters Build Wealth.</h2>
-                        <p className="font-medium text-lightblack text-2xl mt-5 text-center lg:text-start">Rent in Canada keeps rising, making it harder for people to save. Renvestment was built to help tenants turn every rent payment into a step toward financial freedom.</p>
+                        <h2 className="text-4xl lg:text-65xl pt-4 font-bold sm:leading-tight mt-5 text-center lg:text-start">Driven to Help Canadian Landlords Build Stability.</h2>
+                        <p className="font-medium text-lightblack text-2xl mt-5 text-center lg:text-start">Across Canada, landlords lose thousands each year from late rent, unreliable tenants, and long eviction delays. Renvestment rewards on-time payments and automates rent management, creating stable, long-term landlord-tenant relationships.</p>
                         <p className="text-2xl font-semibold mt-12 lg:ml-32 preline text-center lg:text-start"> Luke Lee, Founder</p>
                     </div>
 
