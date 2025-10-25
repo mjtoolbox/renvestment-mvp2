@@ -12,19 +12,19 @@ interface datatype {
 const Aboutdata: datatype[] = [
     {
         heading: "Tenant Benefits",
-        imgSrc: "/images/aboutus/imgOne.svg",
+        imgSrc: "/images/aboutus/invest.svg",
         paragraph: 'Tenants earn cashback, build savings or investments, and enjoy seamless, automated rent payments with digital records',
         link: 'Learn more'
     },
     {
         heading: "Landlord Benefits",
-        imgSrc: "/images/aboutus/imgTwo.svg",
+        imgSrc: "/images/aboutus/trust.svg",
         paragraph: 'Landlords gain automated rent payments, reduced turnover, and a marketing tool to attract reliable, high-quality tenants through Renvestment.',
         link: 'Learn more'
     },
     {
         heading: "Property Management Benefits",
-        imgSrc: "/images/aboutus/imgThree.svg",
+        imgSrc: "/images/aboutus/house.svg",
         paragraph: 'Property managers can streamline rent collection, reduce late payments, and enhance tenant satisfaction with automated processes and digital records.',
         link: 'Learn more'
     },
