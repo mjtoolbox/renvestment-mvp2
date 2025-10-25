@@ -25,8 +25,17 @@ const Banner = () => {
 
                 {/* COLUMN-2 */}
 
-                <div className='lg:-m-24 lg:pt-20 hidden lg:block'>
-                    <Image src="/images/banner/banner.svg" alt="hero-image" width={800} height={642} />
+                <div className='flex items-center justify-center'>
+                    {/* Responsive container: parent is relative and given responsive heights so the SVG scales */}
+                    <div className="relative w-full h-44 md:h-64 lg:h-[520px] max-w-lg lg:max-w-none">
+                        <Image
+                            src="/images/banner/banner.svg"
+                            alt="Renvestment banner"
+                            fill
+                            className="object-contain"
+                            priority
+                        />
+                    </div>
                 </div>
 
             </div>
