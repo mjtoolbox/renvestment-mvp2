@@ -19,7 +19,7 @@ const FAQ = () => {
                                             } h-5 w-5 text-purple-500`}
                                     />
                                 </Disclosure.Button>
-                                <Disclosure.Panel className="px-4 pt-4 pb-2 text-base text-black font-normal opacity-50">
+                                <Disclosure.Panel className="px-4 pt-4 pb-2 text-lg text-black font-normal opacity-50">
                                     Renvestment lets tenants pay rent online while enabling cashback/investment plan for tenants. When you pay rent through Renvestment, the money is automatically split,  to your landlord, tenants earn % cashback from landlord agreement , and Renvestment takes a small 1% fee to run the platform.
                                 </Disclosure.Panel>
                             </>
@@ -38,7 +38,7 @@ const FAQ = () => {
                                             } h-5 w-5 text-purple-500`}
                                     />
                                 </Disclosure.Button>
-                                <Disclosure.Panel className="px-4 pt-4 pb-2 text-base text-black font-normal opacity-50">
+                                <Disclosure.Panel className="px-4 pt-4 pb-2 text-lg text-black font-normal opacity-50">
                                     Renvestment charges a small 1% platform fee on each rent payment to keep the service running smoothly. This fee also covers Stripe’s secure payment processing, so landlords don’t pay anything extra.
                                 </Disclosure.Panel>
                             </>
@@ -57,7 +57,7 @@ const FAQ = () => {
                                             } h-5 w-5 text-purple-500`}
                                     />
                                 </Disclosure.Button>
-                                <Disclosure.Panel className="px-4 pt-4 pb-2 text-base text-black font-normal opacity-50">
+                                <Disclosure.Panel className="px-4 pt-4 pb-2 text-lg text-black font-normal opacity-50">
                                     Yes — your payments and personal information are completely safe with Renvestment. We use Stripe, one of the most trusted payment processors in the world, to handle all transactions.
                                 </Disclosure.Panel>
                             </>
