@@ -5,7 +5,7 @@ import React from 'react';
 import { Bars3Icon } from '@heroicons/react/24/outline';
 import Drawer from "./Drawer";
 import Drawerdata from "./Drawerdata";
-import Contactusform from './Contactus';
+// Contact form moved to Banner. Replace with a Login button here.
 
 interface NavigationItem {
     name: string;
@@ -65,7 +65,13 @@ const Navbar = () => {
 
                             </div>
                             {/* <button className='hidden lg:flex justify-end text-xl font-semibold bg-transparent py-4 px-6 lg:px-12 navbutton rounded-full hover:bg-navyblue hover:text-white'>Contact us</button> */}
-                            <Contactusform />
+                            <div className=" inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto md:ml-6 sm:pr-0">
+                                <div className='hidden lg:block'>
+                                    <button type="button" className='justify-end text-xl font-semibold bg-transparent py-4 px-6 lg:px-12 navbutton rounded-full hover:bg-navyblue hover:text-white'>
+                                        Login
+                                    </button>
+                                </div>
+                            </div>
                         </div>
 
 
