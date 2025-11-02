@@ -8,7 +8,7 @@ This document serves as the primary instruction set for rapidly building the Ren
 | :---- | :---- | :---- |
 | **Framework** | Next.js (App Router) | All components must be built using functional React components and modern hooks. |
 | **Styling** | Tailwind CSS | **Mandatory:** Use Tailwind CSS for all styling. Ensure responsive design. |
-| **Database** | Vercel PostgreSQL (Mocked) | The application must be designed to connect to PostgreSQL. |
+| **Database** | Vercel PostgreSQL  | The application must be designed to connect to PostgreSQL. |
 | **ORM** | Prisma or Drizzle | Use an ORM (prefer Prisma for schema definition clarity) for all database interactions. |
 | **Authentication** | Auth.js (NextAuth.js) | Implement standard Credential Provider for email/password sign-in/sign-up. |
 | **Deployment Target** | Vercel | API Routes must be used for all backend logic. |
