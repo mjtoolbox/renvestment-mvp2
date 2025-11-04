@@ -9,7 +9,7 @@ This document serves as the primary instruction set for rapidly building the Ren
 | **Framework** | Next.js (App Router) | All components must be built using functional React components and modern hooks. |
 | **Styling** | Tailwind CSS | **Mandatory:** Use Tailwind CSS for all styling. Ensure responsive design. |
 | **Database** | Vercel PostgreSQL  | The application must be designed to connect to PostgreSQL. |
-| **ORM** | Prisma or Drizzle | Use an ORM (prefer Prisma for schema definition clarity) for all database interactions. |
+| **ORM** | Prisma or Drizzle (optional) | Prefer an ORM for long-term projects; however the PoC uses `pg` (node-postgres) directly in `lib/db.ts` for a lightweight, low-dependency implementation. If you adopt Prisma later, migration steps and schema alignment will be required. |
 | **Authentication** | Auth.js (NextAuth.js) | Implement standard Credential Provider for email/password sign-in/sign-up. |
 | **Deployment Target** | Vercel | API Routes must be used for all backend logic. |
 
@@ -74,6 +74,23 @@ model Transaction {
   userId   String  
 }
 
+### Additional PoC Artifact: contacts table
+
+For the PoC a small `contacts` table is used to persist applicant submissions from the site "Join" modal. Current schema (see `spec/dbscript.sql`):
+
+```sql
+CREATE TABLE IF NOT EXISTS contacts (
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+  email TEXT NOT NULL UNIQUE,
+  role TEXT NOT NULL,
+  created_at timestamptz DEFAULT now()
+);
+```
+
+Notes: the `email` column has a UNIQUE constraint and the PoC code performs a server-side lookup before insert to return HTTP 409 when a duplicate is attempted.
+
+
 ## **3\. Required Frontend Components & Pages**
 
 The application must implement Role-Based Access Control (RBAC) via middleware/session checks.
@@ -99,6 +116,23 @@ The application must implement Role-Based Access Control (RBAC) via middleware/s
    * Include a prominent "Make Rent Payment" button that triggers the payment flow (see Section 4.2).  
 2. **/tenant/contracts/\[id\]**: Page to view a DRAFT contract. Must include a **"Accept Lease & Activate"** button. Clicking this updates the Contract.status to ACTIVE.
 
+### **Implemented PoC-specific Components & UX**
+
+These items describe features implemented in the current codebase that are not called out above and should be preserved in the spec for accuracy:
+
+- **Contact modal (Join Now)**
+  - Implemented as `app/components/Banner/Contactus.tsx` using Headless UI Dialog. The modal collects Name, Email and Role and POSTs to `/api/contact`.
+  - Email is normalized (trim + lowercase) on client and server; server checks duplicates and returns 409 for existing emails. Duplicate errors are displayed inline under the email input.
+
+- **Global Toast System**
+  - `app/components/Toast/ToastProvider.tsx` provides a `useToast()` hook and a bottom-right toast UI used across the app for success/error/info messages.
+
+- **DB helper and simple data access**
+  - `lib/db.ts` contains a lazily initialized `pg` Pool and helper methods (`insertContact`, `getContactByEmail`) used by the PoC API routes.
+
+- **/api/contact**
+  - Route handler at `app/api/contact/route.ts` validates input, checks for duplicates and inserts contact rows on success. Returns 201 on success, 409 for duplicates, and 400/500 for other errors.
+
 ## **4\. Required API Endpoints (Next.js Route Handlers)**
 
 ### **4.1 Internal API (Data Management)**
@@ -107,6 +141,7 @@ The application must implement Role-Based Access Control (RBAC) via middleware/s
 | :---- | :---- | :---- |
 | /api/contracts | POST | Creates a new Contract (used by Landlord form). |
 | /api/contracts/\[id\]/accept | POST | Updates Contract.status to ACTIVE. |
+| /api/contact | POST | Accepts {name,email,role} from the site "Join" modal. Normalizes email, checks for duplicates and returns 409 if the email already exists. |
 
 ### **4.2 External Mock Payment System (Goal: Rent Payment Simulation)**
 

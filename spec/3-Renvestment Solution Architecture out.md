@@ -36,26 +36,21 @@ Based on the provided documentation, the following NFRs are critical for the MVP
 ### 2. Architectural Pattern & Core Tech Stack
 
 **Architectural Pattern:** **Modular Monolith**
-* **Justification:** For an MVP, this pattern provides the ideal balance between development speed and future scalability. It allows the core functionalities (users, contracts, payments) to be built and deployed as a single unit, reducing initial complexity. By designing the application in distinct, loosely-coupled modules, we can easily extract them into separate microservices as the platform scales.
 
-**Recommended Tech Stack:**
+*Justification:* For an MVP this pattern balances development speed with future scalability. The PoC has been implemented as a single Next.js application (frontend + serverless route handlers) to validate end-to-end flows quickly. The codebase is organized into loosely-coupled components (UI components, route handlers, and a small DB utility) so pieces can be extracted into standalone services later.
 
-* **Backend:**
-    * **Language:** C#
-    * **Framework:** ASP.NET Core
-    * **Database:** PostgreSQL (Azure Database for PostgreSQL)
-    * *Rationale:* This stack is robust, highly performant, and aligns perfectly with the CTO's extensive enterprise and Azure experience, ensuring strong leadership and faster development. PostgreSQL offers excellent transactional integrity, which is non-negotiable for a financial application.
+**Implemented Tech Stack (PoC)**
 
-* **Frontend:**
-    * **Framework/Library:** Next.js (React)
-    * **State Management:** Redux Toolkit or Zustand
-    * *Rationale:* Next.js provides a powerful React framework with server-side rendering (SSR) and static site generation (SSG) out-of-the-box, improving performance and SEO for a better user acquisition funnel.
+* **Runtime / Platform:** Next.js (App Router) running on Node (Vercel for deployment)
+    * The PoC uses Next.js both for the frontend UI (React components) and for backend logic via route handlers under `app/api/*`.
+* **Database:** PostgreSQL (Vercel Postgres / Neon compatible). Connection is managed with `pg` and a small `lib/db.ts` utility. The DB pool is lazily initialized and preserved across Next.js hot reloads during development.
+    * The DB helper sets `ssl: { rejectUnauthorized: false }` by default to support common hosted Postgres providers. Environment variable names accepted: `DATABASE_URL` or `REVEST_DATABASE_URL`.
+* **Data Access:** `node-postgres` (`pg`) is used directly in the PoC for simplicity (no ORM required for the small feature set implemented). We added `@types/pg` for TypeScript support.
+* **Frontend / Styling:** Next.js + Tailwind CSS (mobile-first responsive design). Components live under `app/components/*`.
+* **UI Patterns:** Headless UI (`@headlessui/react`) for accessible dialogs and transitions. `next/image` is used for images where appropriate.
+* **Deployment:** Vercel is used for the PoC. The same Next.js app can be built as a modular monolith and later migrated to Azure/.NET services if the product roadmap requires it.
 
-* **Deployment:**
-    * **Cloud Provider:** Microsoft Azure
-    * **Containerization:** Docker
-    * **Strategy:** The backend application and database will be containerized using Docker and deployed to **Azure App Service** and **Azure Database for PostgreSQL**. A CI/CD pipeline will be set up using **GitHub Actions** or **Azure DevOps** for automated builds, testing, and deployments.
-    * *Rationale:* Leveraging the CTO's deep expertise in the Azure ecosystem will de-risk the project and accelerate deployment. Azure provides a secure, compliant, and scalable environment that meets all stated NFRs.
+*Rationale for PoC choices:* Using Next.js for both client and server route handlers accelerated development and allowed rapid iteration. The code is organized so the long-term recommended backend (C#/.NET) can be introduced later; the PoC demonstrates end-to-end flows, database integration, and deployment readiness.
 
 ---
 
