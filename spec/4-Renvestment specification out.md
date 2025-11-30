@@ -13,68 +13,10 @@ This document serves as the primary instruction set for rapidly building the Ren
 | **Authentication** | Auth.js (NextAuth.js) | Implement standard Credential Provider for email/password sign-in/sign-up. |
 | **Deployment Target** | Vercel | API Routes must be used for all backend logic. |
 
-## **2\. Core Data Model (Prisma Schema Reference)**
+## **2\. Core Data Model **
+Reference to "Renvest PostgreSQL Schema.sql"
 
-The PoC requires three main entities to validate the core flows.
-
-// Simplified Database Schema Reference (Prisma or Drizzle equivalent)
-
-enum UserRole {  
-  LANDLORD  
-  TENANT  
-}
-
-enum ContractStatus {  
-  DRAFT      // Created by Landlord, not yet accepted  
-  ACTIVE     // Accepted by Tenant  
-  ENDED  
-}
-
-enum TransactionStatus {  
-  PENDING  
-  SUCCESS  
-  FAILED  
-}
-
-model User {  
-  id    String @id @default(uuid())  
-  email String @unique  
-  name  String?  
-  role  UserRole @default(TENANT)  
-    
-  landlordContracts Contract\[\] @relation("LandlordContracts")  
-  tenantContract    Contract?  @relation("TenantContract")  
-  transactions      Transaction\[\]  
-}
-
-model Contract {  
-  id            String @id @default(uuid())  
-  landlordId    String  
-  tenantId      String  
-  rentAmount    Decimal  
-  status        ContractStatus @default(DRAFT)  
-  startDate     DateTime  
-    
-  landlord User @relation("LandlordContracts", fields: \[landlordId\], references: \[id\])  
-  tenant   User @relation("TenantContract", fields: \[tenantId\], references: \[id\])  
-  transactions Transaction\[\]  
-}
-
-model Transaction {  
-  id           String @id @default(uuid())  
-  contractId   String  
-  amount       Decimal  
-  status       TransactionStatus @default(PENDING)  
-  description  String  
-  mockReferenceId String // Used to track interaction with Mock API  
-  createdAt    DateTime @default(now())  
-    
-  contract Contract @relation(fields: \[contractId\], references: \[id\])  
-  user     User     @relation(fields: \[userId\], references: \[id\])  
-  userId   String  
-}
-
-### Additional PoC Artifact: contacts table
+### Additional PoC Artifact for MVP1: contacts table
 
 For the PoC a small `contacts` table is used to persist applicant submissions from the site "Join" modal. Current schema (see `spec/dbscript.sql`):
 
